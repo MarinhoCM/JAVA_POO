@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package revisaoprova;
+import java.util.Scanner;
 
 /**
  *
@@ -20,7 +21,7 @@ class Estoque {
         this.product = product;
         this.partner = partner;
     }
-    
+
     public int getAmount() {
         return amount;
     }
@@ -52,14 +53,37 @@ class Estoque {
     public void setCost(float cost) {
         this.cost = cost;
     }
-    
-    public void addProduct(int value){
+
+    public void addProduct(int value) {
         int amount = this.getAmount();
-        if (value > 0){
+        if (value > 0) {
             this.setAmount(amount + value);
+            System.out.println("Insira o valor para os produtos");
+            
+            
+            // implementar 
         } else {
             System.out.println("Apenas numeros inteiros são válidos");
         }
+    }
+
+    public void subProduct(int value) {
+        if (this.getAmount() >= value) {
+            this.setAmount(this.getAmount() - value);
+        } else {
+            System.out.println("Quantidade no estoque: " + this.getAmount());
+        }
+    }
+
+    public float addCart(int value) {
+        float total = 0;
+        if (value > 0) {
+            this.subProduct(value);
+            total = this.getCost() * value;
+        } else {
+            System.out.println("Valor inválido");
+        }
+        return total;
     }
 
     public void showEstoque() {
