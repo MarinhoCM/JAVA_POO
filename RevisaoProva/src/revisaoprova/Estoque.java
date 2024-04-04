@@ -60,8 +60,9 @@ class Estoque {
             this.setAmount(amount + value);
             if (this.getCost() > 0) {
                 System.out.println("Valor atual do produto: " + this.getCost());
+            } else {
+                System.out.println("Insira um valor para o produto");
             }
-
         } else {
             System.out.println("Apenas numeros inteiros são válidos");
         }
